@@ -7,7 +7,7 @@ remoteServerUrl = process.env.REMOTE_SERVER_URL || 'tls://192.168.0.122:1338'
 infos = url.parse remoteServerUrl
 
 server = net.createServer (conn) ->
-  console.log "inconing TCP"
+  console.log "incoming TCP"
 
   options =
     rejectUnauthorized: false
