@@ -16,13 +16,13 @@ server = net.createServer (conn) ->
 
   cleartextStream.setEncoding 'utf8'
 
+  #SSL --> TCP
   cleartextStream.on 'data', (data) ->
     conn.write data
 
+  #TCP --> SSL
   conn.on 'data', (data) ->
     cleartextStream.write data
-
-
 
 port = process.env.PORT || 1354
 server.listen port, () ->
