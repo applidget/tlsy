@@ -1,0 +1,6 @@
+{
+  "main": "proxy.coffee",
+  "dependencies": {
+    "coffee-script" : "1.6.3"
+  }
+}
