@@ -1,28 +1,22 @@
 
 net = require 'net'
 url = require 'url'
+util = require "util"
+tls = require "tls"
 
 remoteServerUrl = process.env.REMOTE_SERVER_URL || 'tls://192.168.0.122:1338'
-
-infos = url.parse remoteServerUrl
+uri = url.parse remoteServerUrl
 
 server = net.createServer (conn) ->
-  console.log "incoming TCP"
+  util.log "incoming TCP"
 
   options =
     rejectUnauthorized: false
 
-  cleartextStream = require(infos.protocol.replace(":", "")).connect infos.port, infos.hostname, options, () ->
+  outgoingSocket = tls.connect uri.port, uri.hostname, options, () ->
 
-  cleartextStream.setEncoding 'utf8'
-
-  #SSL --> TCP
-  cleartextStream.on 'data', (data) ->
-    conn.write data
-
-  #TCP --> SSL
-  conn.on 'data', (data) ->
-    cleartextStream.write data
+  outgoingSocket.setEncoding 'utf8'
+  conn.pipe(outgoingSocket)
 
 port = process.env.PORT || 1354
 server.listen port, () ->
