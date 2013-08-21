@@ -17,6 +17,7 @@ server = net.createServer (conn) ->
 
   outgoingSocket.setEncoding 'utf8'
   conn.pipe(outgoingSocket)
+  outgoingSocket.pipe(conn)
 
 port = process.env.PORT || 1354
 server.listen port, () ->
