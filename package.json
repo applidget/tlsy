@@ -1,6 +1,18 @@
 {
+  "author": "Robin Monjo <robin.monjo@applidget.com>, Romain Pechayre <romain.pechayre@applidget.com>",
+  "name": "tlsy",
+  "description": "simple TCP to SSL proxy",
+  "version": "0.0.1",
+  "private": false,
   "main": "proxy.coffee",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/applidget/tlsy.git"
+  },
   "dependencies": {
-    "coffee-script" : "1.6.3"
+    "coffee-script" : "1.6.*"
+  },
+  "bin": {
+    "tlsy": "./tlsy.coffee"
   }
 }
