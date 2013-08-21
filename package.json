@@ -9,8 +9,9 @@
     "type": "git",
     "url": "git://github.com/applidget/tlsy.git"
   },
-  "dependencies": {
-    "coffee-script" : "1.6.*"
+  "dependencies": {},
+  "devDependencies": {
+    "coffee-script": "1.6.3"
   },
   "bin": {
     "tlsy": "./tlsy.coffee"
