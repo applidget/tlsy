@@ -20,6 +20,6 @@
     "node": "*"
   },
   "scripts": {
-    "prepublish": "coffee --compile --output lib/ src/"
+    "prepublish": "coffee --compile --output lib/ src/ && echo '#!/usr/bin/env node'|cat - lib/tlsy.js > /tmp/out && mv /tmp/out lib/tlsy.js"
   }
 }
