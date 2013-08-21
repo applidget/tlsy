@@ -19,6 +19,10 @@ server = net.createServer (conn) ->
   
   conn.pipe(outgoingSocket)
   outgoingSocket.pipe(conn)
+  
+  outgoingSocket.on 'error', (error) -> conn.end()
+  conn.on 'error', (error) -> outgoingSocket.end()
+
 
 port = process.env.PORT || 1354
 server.listen port, () ->
