@@ -4,7 +4,7 @@
   "description": "simple TCP to SSL proxy",
   "version": "0.0.1",
   "private": false,
-  "main": "tlsy.coffee",
+  "main": "tlsy.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/applidget/tlsy.git"
@@ -14,6 +14,6 @@
     "coffee-script": "1.6.3"
   },
   "bin": {
-    "tlsy": "./tlsy.coffee"
+    "tlsy": "./lib/tlsy.js"
   }
 }
