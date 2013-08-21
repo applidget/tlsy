@@ -2,3 +2,4 @@ node_modules
 npm-debug.logscript.rb
 npm-debug.log
 .DS_Store
+lib

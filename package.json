@@ -1,6 +1,25 @@
 {
-  "main": "proxy.coffee",
-  "dependencies": {
-    "coffee-script" : "1.6.3"
+  "author": "Robin Monjo <robin.monjo@applidget.com>, Romain Pechayre <romain.pechayre@applidget.com>",
+  "name": "tlsy",
+  "description": "simple TCP to SSL proxy",
+  "version": "0.0.1",
+  "private": false,
+  "main": "lib/tlsy.js",
+  "bin": {
+    "tlsy": "lib/tlsy.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/applidget/tlsy.git"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "coffee-script": "1.6.3"
+  },
+  "engines": {
+    "node": "*"
+  },
+  "scripts": {
+    "prepublish": "coffee --compile --output lib/ src/ && echo '#!/usr/bin/env node'|cat - lib/tlsy.js > /tmp/out && mv /tmp/out lib/tlsy.js"
   }
 }

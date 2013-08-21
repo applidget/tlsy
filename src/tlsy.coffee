@@ -1,4 +1,3 @@
-
 net = require 'net'
 url = require 'url'
 util = require "util"
@@ -14,8 +13,10 @@ server = net.createServer (conn) ->
     rejectUnauthorized: false
 
   outgoingSocket = tls.connect uri.port, uri.hostname, options, () ->
-
+  
   outgoingSocket.setEncoding 'utf8'
+  conn.setEncoding 'utf8'
+  
   conn.pipe(outgoingSocket)
   outgoingSocket.pipe(conn)
 
