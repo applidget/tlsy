@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 
 net = require 'net'
 url = require 'url'
