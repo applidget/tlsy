@@ -19,9 +19,20 @@ server = net.createServer (conn) ->
   cleartextStream.on 'data', (data) ->
     conn.write data
 
+  cleartextStream.on 'error', (error) ->
+    cleartextStream.end()
+    cleartextStream.destroy()
+    conn.end()
+
   #TCP --> SSL
   conn.on 'data', (data) ->
     cleartextStream.write data
+
+  conn.on 'error', (error) ->
+    conn.end()
+    conn.destroy()
+    cleartextStream.end()
+
 
 port = process.env.PORT || 1354
 server.listen port, () ->
